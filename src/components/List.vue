@@ -22,5 +22,13 @@ export default {
   mounted() {
     this.GET_COUNTRIES_FROM_API();
   },
+  //  watch: {
+  //   '$route.params.area': {
+  //     immediate: true,
+  //     handler() {
+  //     this.GET_COUNTRIES_FROM_API();
+  //     },
+  //   },
+  // },
 };
 </script>  
