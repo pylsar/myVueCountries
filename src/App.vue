@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <list />
+    <!-- <list /> -->
+    <router-link to="/list">Список стран</router-link>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import List from "./components/List.vue";
+// import List from "./components/List.vue";
 
 export default {
   name: "App",
   components: {
-    List,
+    // List,
   },
   data() {
     return {};

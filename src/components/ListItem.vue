@@ -1,7 +1,8 @@
 <template>
   <div class="list-item">
-      <h1>{{ country.name }}</h1>
-    <router-view></router-view>
+      <!-- <h1>{{ country.name }}</h1> -->
+      <h2>{{country.area}}</h2>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 <script>
@@ -10,7 +11,7 @@ export default {
   name: "ListItem",
   data() {
     return {
-      name: this.$route.params['name']
+      area: this.$route.params['area']
     };
   },
   computed: {
@@ -34,5 +35,10 @@ export default {
   //     },
   //   },
   // },
+  watch:{
+    $route(toRoute){
+      this.area = toRoute.params.area
+    }
+  }
 };
 </script>  
