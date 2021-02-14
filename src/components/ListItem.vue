@@ -1,26 +1,28 @@
 <template>
   <div class="list-item">
-    <!-- <span>{{ counrty.name }}</span> -->
-    <!-- <span>{{ population }}</span> -->
-    sdfhk
-    <!-- {{ index }} -->
+    <h1>{{ country.name }}</h1>
     <!-- <router-view></router-view> -->
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "ListItem",
-
   data() {
-    return {
-      // index: this.$route.params["index"],
-    };
+    return {};
   },
-
-  // props: {
-  //   countries: {
-  //     type: Array,
-  //   },
-  // },
+  computed: {
+    ...mapGetters(["COUNTRIES"]),
+    country() {
+      //необходимо привести к числу
+      return this.$store.getters.countryByArea(+this.$route.params.area);
+    },
+  },
+  methods: {
+    ...mapActions(["GET_COUNTRIES_FROM_API"]),
+  },
+  mounted() {
+    this.GET_COUNTRIES_FROM_API();
+  },
 };
 </script>  

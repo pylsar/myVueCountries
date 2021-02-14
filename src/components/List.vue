@@ -1,28 +1,26 @@
 <template>
   <div class="list">
-    <div v-for="(country, index) in countries" :key="index">
+    <div v-for="(country, index) in COUNTRIES" :key="index">
       {{ country.name }}
-      <router-link :to="'/' + index" 
+      <router-link :to="'/list/' + country.area"
         ><img :src="country.flag"
       /></router-link>
-      <!-- <router-link :to="{ name: 'ListItem', params: { index: index } }" tag="a"
-        ><img :src="country.flag"
-      /></router-link> -->
-      <!-- <router-link :to="{ path: `/${index}` }" tag="a"
-        ><img :src="country.flag"
-      /></router-link> -->
     </div>
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "List",
-
-  props: {
-    countries: {
-      type: Array,
-    },
+  computed: {
+    ...mapGetters(["COUNTRIES"]),
+  },
+  methods: {
+    ...mapActions(["GET_COUNTRIES_FROM_API"]),
+  },
+  mounted() {
+    this.GET_COUNTRIES_FROM_API();
   },
 };
 </script>  

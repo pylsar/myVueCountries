@@ -9,15 +9,12 @@ export default new Router({
   mode: "history",
   routes: [
     {
-      path: "/",
-      component: List
+      path: "/list",
+      component: List,
+      name: List
     },
-    // {
-    //   path: "/listitem",
-    //   component: ListItem
-    // },
     {
-      path: "/:index",
+      path: "/list/:area",
       component: ListItem,
       name: "ListItem",
       props: true
