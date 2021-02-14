@@ -1,8 +1,7 @@
 <template>
   <div class="list-item">
-      <!-- <h1>{{ country.name }}</h1> -->
+      <h1>{{country.name}}</h1>
       <h2>{{country.area}}</h2>
-    <!-- <router-view></router-view> -->
   </div>
 </template>
 <script>
@@ -27,14 +26,6 @@ export default {
   mounted() {
     this.GET_COUNTRIES_FROM_API();
   },
-  //   watch: {
-  //   '$route.params.area': {
-  //     immediate: true,
-  //     handler() {
-  //     this.GET_COUNTRIES_FROM_API();
-  //     },
-  //   },
-  // },
   watch:{
     $route(toRoute){
       this.area = toRoute.params.area
