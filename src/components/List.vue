@@ -2,7 +2,7 @@
   <div>
     <div class="list">
       <div v-for="(country, index) in paginatedData" :key="index">
-        {{ country.name }}
+        <h3 class="list__title">{{ country.name }}</h3>
         <router-link :to="'/list/' + country.area"
           >
           <div class="list__item">
@@ -11,8 +11,10 @@
         </router-link>
       </div>
     </div>
-    <button @click="prewPage" :disabled="pageNumber === 0">Туда</button>
-    <button @click="nextPage" :disabled="pageNumber >= pageCount - 1">Сюда</button>
+    <div class="list__btns">
+      <button @click="prewPage" :disabled="pageNumber === 0">Туда</button>
+      <button @click="nextPage" :disabled="pageNumber >= pageCount - 1">Сюда</button>
+    </div>
   </div>
 </template>
 <script>
@@ -55,6 +57,27 @@ export default {
   .list{
     display: flex;
     flex-wrap: wrap;
+    &__title{
+      text-align: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    &__btns{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 36px 12px 36px 12px;
+      & button{
+        width: 80px;
+        height: 40px;
+        margin-left: 24px;
+        cursor: pointer;
+        outline: none;
+        &:hover{
+          opacity: .5;
+        }
+      }
+    }
     &__item{
       width: 300px;
       height: 200px;
@@ -62,6 +85,7 @@ export default {
       & img{
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
   }
