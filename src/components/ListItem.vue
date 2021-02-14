@@ -1,7 +1,14 @@
 <template>
   <div class="list-item">
       <h1>{{country.name}}</h1>
-      <h2>{{country.area}}</h2>
+      <!-- <h2>{{country.area}}</h2> -->
+      <ul>
+        <li>Capital: {{country.capital}}</li>
+        <li>Area: {{country.area}}</li>
+        <li>Population: {{country.population}}</li>
+        <li>Time Zones: {{country.timezones}}</li>
+        <li>Region: {{country.region}}</li>
+      </ul>
   </div>
 </template>
 <script>

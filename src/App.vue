@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <router-link to="/list">Список стран</router-link>
-    <router-view></router-view>
+    <the-header />
+    <router-view />
   </div>
 </template>
 
 <script>
-
+import TheHeader from '@/components/TheHeader.vue'
 export default {
   name: "App",
   components: {
+    TheHeader
   },
-  data() {
-    return {};
-  },
-
-  methods: {},
 };
 </script>
 
 <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>

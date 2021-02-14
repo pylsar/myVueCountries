@@ -21,6 +21,7 @@ export default new Vuex.Store({
       })
         .then((countries) => {
           commit("SET_COUNTRIES_TO_STATE", countries.data);
+          console.log(countries.data)
           return countries;
         })
         .catch((error) => {

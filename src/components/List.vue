@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <div class="list">
       <div v-for="(country, index) in paginatedData" :key="index">
         <h3 class="list__title">{{ country.name }}</h3>
@@ -15,7 +15,7 @@
       <button @click="prewPage" :disabled="pageNumber === 0">Туда</button>
       <button @click="nextPage" :disabled="pageNumber >= pageCount - 1">Сюда</button>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
@@ -57,6 +57,7 @@ export default {
   .list{
     display: flex;
     flex-wrap: wrap;
+    padding-top: 50px;
     &__title{
       text-align: center;
       padding-top: 12px;
