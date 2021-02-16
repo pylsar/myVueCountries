@@ -1,13 +1,28 @@
 <template>
-    <header class="search">
+    <div class="search">
         <form>
-            <input type="text">
+            <input type="text" v-model="search">
         </form>
-    </header>
+    </div>    
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
-    name: 'TheSearch'
+    name: 'TheSearch',
+    data(){
+        return{
+            search: ''
+        }
+    },
+    computed:{
+        ...mapGetters(["COUNTRIES"]),
+        filteredCountry(){
+            return this.COUNTRIES.filter(country => {
+                return country.title.toLowerCase().includes(this.search.toLowerCase());
+            })
+        }
+    },
+    
 }
 </script>
 <style lang="scss">
