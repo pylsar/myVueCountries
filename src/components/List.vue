@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div>
+    <div class="search">
       <input type="text" v-model="search" />
     </div>
     <div class="list">
@@ -63,6 +63,28 @@ export default {
 };
 </script> 
 <style lang="scss">
+  .search{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    & input{
+      width: 50%;
+      height: 40px;
+      background: gray;
+      border: 1px solid gray;
+      outline: none;
+      cursor: pointer;
+      &:hover{
+        border: 1px solid skyblue;
+      }
+      &:focus{
+        border: 1px solid blue;
+      }
+    }
+  }
   .list{
     display: flex;
     flex-wrap: wrap;
