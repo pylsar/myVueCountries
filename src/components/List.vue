@@ -1,5 +1,8 @@
 <template>
   <section>
+    <div>
+      <input type="text" v-model="search" />
+    </div>
     <div class="list">
       <div v-for="(country, index) in paginatedData" :key="index">
         <h3 class="list__title">{{ country.name }}</h3>
@@ -25,6 +28,7 @@ export default {
     return{
       pageNumber: 0,
       size: 8,
+      search: ''
     }
   },
   computed: {
@@ -33,10 +37,15 @@ export default {
       return Math.ceil(this.COUNTRIES.length / this.size);
     },
     paginatedData() {
-      return this.COUNTRIES.slice(
+      return this.filteredData.slice(
         this.pageNumber * this.size,
         this.pageNumber * this.size + this.size
       );
+    },
+    filteredData() {
+      return this.COUNTRIES.filter((item) => {
+        return item.name.toLowerCase().includes(this.search.toLowerCase());
+      });
     },
   },
   methods: {
